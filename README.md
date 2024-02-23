@@ -18,7 +18,11 @@ HTML widget to be used as a Browser source in [obsproject/obs-studio](https://gi
    ```
    You can choose to use another foobar2000 plugin, like [foxx1337/foo_nowplaying2](https://github.com/foxx1337/foo_nowplaying2), though it currently does not support writing output every n milliseconds. Currently you would have to modify this widget to get rid of the current elapsed playback time.
 
-3. Add a Browser source in OBS and choose the [obs-now-playing.html](obs-now-playing.html) file as the _URL_. Make sure it not set as _Local file_ as this would disable support for cover artwork.
+2. Download this project and place it anywhere on your computer, just make sure to have the three required files; [obs-now-playing.html](obs-now-playing.html), [script.js](script.js) and [style.css](style.css) in the same directory.
+
+3. Point your audio player plugin to write into a file called [data.txt](data.txt) in the same directory.
+
+4. Add a Browser source in OBS and choose the [obs-now-playing.html](obs-now-playing.html) file as the _URL_. Make sure it not set as _Local file_ as this would disable support for cover artwork.
 
    If you did not edit the included CSS file, give the width and height as 480 × 180 pixels.
    
