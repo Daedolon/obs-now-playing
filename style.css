@@ -134,6 +134,7 @@ h4, h4 div {
 
 .marquee {
 	animation: bounce 10s ease-in-out infinite alternate;
+	/* animation: right-to-left 5s linear infinite; */
 }
 
 @keyframes bounce {
@@ -141,3 +142,7 @@ h4, h4 div {
 	100% { transform: translateX(-100%) translateX(270px); }
 }
 
+@keyframes right-to-left {
+	0% { transform: translateX(100%); }
+	100% { transform: translateX(-100%); }
+}
