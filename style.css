@@ -42,8 +42,12 @@ h4, h4 div {
 	color: #838383;
 }
 
+#text_status {
+	width: 80px;
+}
+
 #progress_bar, #progress_text {
-	width: 50%;
+	width: 150px;
 	height: 10px;
 
 	float: left;
@@ -72,8 +76,32 @@ h4, h4 div {
 #album_art {
 	width: 150px;
 	height: 150px;
-	background-color: rgba(0, 0, 0, 0.33);
+
+	overflow: hidden;
+}
+
+
+#album_art_bg,
+#album_art_focus {
+	width: 150px;
+	height: 150px;
+
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+#album_art_bg {
+	background-size: cover;
+	filter: blur(10px);
+	scale: 1.25;
+}
+
+#album_art_focus {
 	background-size: contain;
+	background-position: center;
+
+	top: 0;
+	position: absolute;
 }
 
 #text {

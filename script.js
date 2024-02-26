@@ -23,7 +23,9 @@ function printData() {
 	document.getElementById("progress_bar_fill").style.width = `${percentage}%`;
 	// Album art
 	var albumArtFilePath =  dataSplit[5] + "/cover.jpg";
-	document.getElementById('album_art').style.backgroundImage = "url('" + albumArtFilePath + "')";
+	document.getElementById('album_art_bg').style.backgroundImage = "url('" + albumArtFilePath + "')";
+	document.getElementById('album_art_focus').style.backgroundImage = "url('" + albumArtFilePath + "')";
+
 	// Playback status
 	if (lastElapsedTime == dataSplit[4])
 		document.getElementById("symbol").innerHTML = "&#x23F8;";
