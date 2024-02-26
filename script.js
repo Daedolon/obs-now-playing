@@ -1,7 +1,8 @@
+var lastElapsedTime = "0:00";
+
 function printData() {
 	// Split data
 	var dataSplit = data.split('|');
-	// var dataSplit = data.split(/\r?\n|\r|\n/g);
 
 	// Get total seconds from time
 	var totalDuration = dataSplit[3].split(":");
@@ -12,7 +13,8 @@ function printData() {
 	// Calculate percentage
 	var percentage = (elapsedDuration / totalDuration) * 100;
 
-	// Populate HTML
+	/// Populate HTML
+	// Song information
 	document.getElementById("artist").innerHTML = dataSplit[0];
 	document.getElementById("album").innerHTML = dataSplit[1];
 	document.getElementById("song").innerHTML = dataSplit[2];
@@ -20,9 +22,16 @@ function printData() {
 	document.getElementById("elapsed").innerHTML = dataSplit[4];
 	document.getElementById("progress_bar_fill").style.width = `${percentage}%`;
 	// Album art
-	// Just assume standard "cover.jpg" file
 	var albumArtFilePath =  dataSplit[5] + "/cover.jpg";
 	document.getElementById('album_art').style.backgroundImage = "url('" + albumArtFilePath + "')";
+	// Playback status
+	if (lastElapsedTime == dataSplit[4])
+		document.getElementById("symbol").innerHTML = "&#x23F8;";
+	else
+		document.getElementById("symbol").innerHTML = "&#9205;";
+
+	// Store last elapsed time
+	lastElapsedTime = dataSplit[4];
 }
 
 function updateWidget() {
@@ -47,7 +56,7 @@ function marqueeOverflows(elementId) {
 
 	if (checkOverflow(element))
 	{
-		console.log(element + " is overflowing.");
+		// console.log(element + " is overflowing.");
 		element.classList.add('marquee');
 	}
 	else
