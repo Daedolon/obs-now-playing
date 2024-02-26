@@ -15,9 +15,9 @@ function printData() {
 
 	/// Populate HTML
 	// Song information
-	document.getElementById("artist").innerHTML = dataSplit[0];
-	document.getElementById("album").innerHTML = dataSplit[1];
-	document.getElementById("song").innerHTML = dataSplit[2];
+	document.getElementById("artist").childNodes[0].innerHTML = dataSplit[0];
+	document.getElementById("album").childNodes[0].innerHTML = dataSplit[1];
+	document.getElementById("song").childNodes[0].innerHTML = dataSplit[2];
 	document.getElementById("duration").innerHTML = dataSplit[3];
 	document.getElementById("elapsed").innerHTML = dataSplit[4];
 	document.getElementById("progress_bar_fill").style.width = `${percentage}%`;
@@ -55,21 +55,15 @@ function checkEverySecond() {
 
 function marqueeOverflows(elementId) {
 	var element = document.getElementById(elementId);
-
 	if (checkOverflow(element))
-	{
-		// console.log(element + " is overflowing.");
 		element.classList.add('marquee');
-	}
 	else
-	{
 		element.classList.remove('marquee');
-	}
 }
 
 function checkOverflow(el)
 {
-	return el.clientWidth < el.scrollWidth;
+	return el.parentNode.clientWidth < el.scrollWidth;
 }
 
 function loadJS() {

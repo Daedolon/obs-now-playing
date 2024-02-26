@@ -111,61 +111,33 @@ h4, h4 div {
 }
 
 .top, .bottom {
-	width: 270px;
+	position: relative;
 	height: 60px;
-
-	position: absolute;
 	overflow: hidden;
 }
 
-.top {
-	top: 15;
-}
+.top { top: 0; }
+.bottom { bottom: 0; }
 
-.bottom {
+#progress_row {
+	width: 270px;
+	position: absolute;
 	bottom: 0;
 }
 
-.onerow {
-	width: 270px;
-	position: absolute;
-	bottom: 15;
-}
-
-.wrapper {
-
-}
-
+#artist { top: 0; }
+#album { top: 32; }
+#song { bottom: 15; }
 #artist, #album, #song {
-	/* background-color: #ff0000;*/
-	width: 100%;
-}
-
-h1, h2, h3 {
-
+	position: absolute;
 }
 
 .marquee {
-	/* absolute Important for proper scrolling */
-	/* relative for proper checking */
-	/* ??? */
-	position: relative;
-
-	/* Starting position */
-	transform: translateX(100%);
-	/* Marquee animation */
-	animation: right-to-left 5s linear infinite;
+	animation: bounce 10s ease-in-out infinite alternate;
 }
 
-@keyframes right-to-left {
-	0%
-	{
-		/* Start beyond the container size */
-		transform: translateX(270px);
-	}
-	100%
-	{
-		/* End at the current text's negative distance */
-		transform: translateX(-100%);
-	}
+@keyframes bounce {
+	0% { transform: translateX(0); }
+	100% { transform: translateX(-100%) translateX(270px); }
 }
+
