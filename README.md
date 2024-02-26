@@ -8,13 +8,13 @@ HTML widget to be used as a Browser source in [obsproject/obs-studio](https://gi
 
    The default format [script.js](script.js) is expecting is the following:
    ```
-   var data = "Artist|Album|Song|Duration|Elapsed Time|C:/Path/To/Song/File/"
+   var data = String.raw`Artist|Album|Song|Duration|Elapsed Time|C:/Path/To/Song/File/`
    ```
    This is a bit unconventional as it requires the JavaScript variable in the file itself. This is to circumvent browser security which normally disallow loading local files through JavaScript. Embedding it as a script allows browsers to read data from the file during run-time.
 
    For [foobar2000](https://www.foobar2000.org/) I am currently using the (outdated) Skipyrich's [foo_np_simple](https://web.archive.org/web/20200201202714/https://skipyrich.com/wiki/Foobar2000:Now_Playing_Simple) with the following formatting:
    ```
-   var data = "$if(%isplaying%,%artist%|%album%|%title%|%length%|%playback_time%|$replace($directory_path(%path%),\,/)")
+   var data = String.raw`$if(%isplaying%,%artist%|%album%|%title%|%length%|%playback_time%|$replace($directory_path(%path%),\,/))`
    ```
    You can choose to use another foobar2000 plugin, like [foxx1337/foo_nowplaying2](https://github.com/foxx1337/foo_nowplaying2), though it currently does not support writing output every n milliseconds. Currently you would have to modify this widget to get rid of the current elapsed playback time.
 
