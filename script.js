@@ -1,15 +1,31 @@
 var lastElapsedTime = "0:00";
 
-function printData() {
+function printData()
+{
 	// Split data
 	var dataSplit = data.split('|');
 
-	// Get total seconds from time
+	/// Duration
+	// Get total duration
 	var totalDuration = dataSplit[3].split(":");
-	var totalDuration = +(totalDuration[0] * 60) + +totalDuration[1];
 	// Get elapsed seconds
 	var elapsedDuration = dataSplit[4].split(":");
-	var elapsedDuration = +(elapsedDuration[0] * 60) + +elapsedDuration[1];
+
+	// Check if song is over an hour long
+	if (totalDuration.length == 3)
+	{
+		// Get total seconds from time
+		var totalDuration = +(totalDuration[0] * 60) + +(totalDuration[1] * 60) + +totalDuration[2];
+		// Assume elapsed duration to not exceed total duration
+		var elapsedDuration = +(elapsedDuration[0] * 60) + +(elapsedDuration[1] * 60) + +elapsedDuration[2];
+	}
+	else
+	{
+		// Get total seconds from time
+		var totalDuration = +(totalDuration[0] * 60) + +totalDuration[1];
+		var elapsedDuration = +(elapsedDuration[0] * 60) + +elapsedDuration[1];
+	}
+
 	// Calculate percentage
 	var percentage = (elapsedDuration / totalDuration) * 100;
 
